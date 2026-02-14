@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bujjjiiii ❤️ Bunny</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ff4d6d,#ff85a2);
+    color:white;
+    text-align:center;
+    overflow-x:hidden;
+}
+
+h1{margin-top:50px;font-size:3em;animation:fade 2s;}
+h2{margin-top:25px;}
+p{
+    max-width:750px;
+    margin:20px auto;
+    font-size:1.2em;
+    line-height:1.8;
+    animation:fade 3s;
+}
+
+.heart{
+    font-size:70px;
+    animation:beat 1s infinite;
+}
+
+button{
+    padding:15px 35px;
+    font-size:1.1em;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    margin:15px;
+    transition:0.3s;
+}
+
+.yes{
+    background:white;
+    color:#ff4d6d;
+}
+.yes:hover{transform:scale(1.1);}
+
+.no{
+    background:#ff1e4d;
+    color:white;
+}
+
+.hidden{display:none;}
+
+.gallery{
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.gallery img{
+    width:230px;
+    height:280px;
+    object-fit:cover;
+    border-radius:20px;
+    margin:15px;
+    box-shadow:0 12px 30px rgba(0,0,0,0.4);
+}
+
+footer{
+    margin:50px 0;
+    font-size:1.1em;
+}
+
+@keyframes beat{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.3);}
+    100%{transform:scale(1);}
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎻 ROMANTIC VIOLIN LOVE MUSIC -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_2c7a5e4d7b.mp3" type="audio/mpeg">
+</audio>
+
+<h1>Happy Valentine’s Day 💘</h1>
+<h2>My Bujjjiiii 💖</h2>
+
+<div class="heart">❤️</div>
+
+<p>
+From the moment you came into my life,  
+everything changed for the better.  
+You are my peace, my happiness,  
+and the love I never knew I needed.
+</p>
+
+<p>
+Bujjjiiii,  
+your smile melts my worries,  
+your voice calms my heart,  
+and your love completes me.
+</p>
+
+<button class="yes" onclick="startLove()">Tap Here My Love 💝</button>
+
+<div id="love" class="hidden">
+
+<p>
+I promise you something simple but true —  
+a heart that will always choose you.  
+In every situation, in every phase,  
+I will stand beside you.
+</p>
+
+<p>
+When you smile, my world shines brighter.  
+When you cry, my arms are your home.  
+When life feels heavy,  
+my love will be your strength.
+</p>
+
+<h2>Our Beautiful Memories 📸</h2>
+
+<div class="gallery">
+    <img src="photo1.jpg" alt="Sweet Moment">
+    <img src="photo2.jpg" alt="Our Achievements">
+    <img src="photo3.jpg" alt="Together Always">
+</div>
+
+<p>
+You are my today,  
+my tomorrow,  
+and every dream I hold close to my heart.
+</p>
+
+<h2>Will You Be My Valentine Forever? 💍</h2>
+
+<button class="yes" onclick="yes()">YES FOREVER ❤️</button>
+<button class="no" onclick="no()">I’m Shy 🙈</button>
+
+<div id="answer" class="hidden">
+    <h2>I Knew It 😍</h2>
+    <p>
+    My heart belongs to you, now and always.  
+    No matter where life takes us,  
+    my love will always choose you.
+    </p>
+    <h1>I Love You Bujjjiiii 💞</h1>
+</div>
+
+</div>
+
+<footer>
+Made with endless love by <b>Bunny 🫶</b>
+</footer>
+
+<script>
+function startLove(){
+    document.getElementById("love").classList.remove("hidden");
+    document.getElementById("music").play();
+}
+
+function yes(){
+    document.getElementById("answer").classList.remove("hidden");
+}
+
+function no(){
+    alert("Shy or not… you are still mine 😘❤️");
+}
+</script>
+
+</body>
+</html>
