@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bujjjiiii ❤️ Bunny</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ff4d6d,#ff85a2);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+.hidden{display:none;}
+
+button{
+    padding:15px 35px;
+    font-size:1.1em;
+    border:none;
+    border-radius:40px;
+    cursor:pointer;
+    margin:12px;
+    transition:0.3s;
+}
+button:hover{transform:scale(1.05);}
+
+/* Envelope */
+.envelope{
+    width:260px;
+    height:180px;
+    background:white;
+    margin:120px auto;
+    border-radius:10px;
+    position:relative;
+    cursor:pointer;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+.envelope:before{
+    content:"";
+    position:absolute;
+    top:0;left:0;
+    width:0;height:0;
+    border-left:130px solid transparent;
+    border-right:130px solid transparent;
+    border-top:90px solid #ff4d6d;
+}
+.envelope span{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#ff4d6d;
+    font-weight:bold;
+}
+
+/* Letter */
+.letter{
+    background:white;
+    color:#ff4d6d;
+    padding:30px;
+    margin:40px auto;
+    max-width:700px;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+h1{margin-top:50px;font-size:3em;}
+h2{margin-top:25px;}
+p{
+    max-width:750px;
+    margin:20px auto;
+    font-size:1.2em;
+    line-height:1.8;
+}
+
+.heart{font-size:70px;}
+
+/* Floating Hearts */
+.float-heart{
+    position:fixed;
+    bottom:-30px;
+    color:white;
+    font-size:20px;
+    animation:floatUp 6s linear forwards;
+    pointer-events:none;
+}
+@keyframes floatUp{
+    from{transform:translateY(0);opacity:1;}
+    to{transform:translateY(-110vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- Music -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_8d1e7f0d9b.mp3" type="audio/mpeg">
+</audio>
+
+<!-- Envelope -->
+<div id="envelope" class="envelope" onclick="openLetter()">
+    <span>Tap to Open 💌</span>
+</div>
+
+<!-- Letters -->
+<div id="l1" class="hidden letter">
+<h2>My Dearest Bujjjiiii 💖</h2>
+<p>This is not just a message…  
+It’s my heart, written only for you.</p>
+<button onclick="nextLetter(1)">Continue 💕</button>
+</div>
+
+<div id="l2" class="hidden letter">
+<p>
+You walked into my life quietly,  
+and suddenly everything felt right.  
+You became my comfort, my smile,  
+my favorite feeling.
+</p>
+<button onclick="nextLetter(2)">One More 💝</button>
+</div>
+
+<div id="l3" class="hidden letter">
+<p>
+Before I say anything else…  
+I want you to know this ❤️
+</p>
+<button onclick="showMain()">Open My Heart 💘</button>
+</div>
+
+<!-- Main -->
+<div id="main" class="hidden">
+
+<h1>Happy Valentine’s Day 💘</h1>
+<h2>My Bujjjiiii 💖</h2>
+<div class="heart">❤️</div>
+
+<p>
+You are my peace, my happiness,  
+my favorite thought in every quiet moment.  
+With you, love feels gentle and safe.
+</p>
+
+<button onclick="finalStep()">Tap Here My Love 💝</button>
+
+<div id="proposal" class="hidden">
+<p>
+I may not be perfect,  
+but my love for you is true and endless.
+</p>
+
+<h2>Will You Be My Valentine Forever? 💍</h2>
+
+<button onclick="yes()">YES FOREVER ❤️</button>
+<button onclick="shy()">I’m Shy 🙈</button>
+</div>
+
+<div id="final" class="hidden">
+<h1>I Love You Bujjjiiii 💞</h1>
+<p>Forever yours,<br><b>Bunny 🫶</b></p>
+</div>
+
+<div id="shyReply" class="hidden">
+<h1>Heyyy 🙈💖</h1>
+<p>
+Your shyness is the cutest thing ever 😳❤️  
+The way you hesitate, the way you blush…  
+that’s exactly what makes my heart melt.
+</p>
+<p>
+Don’t worry, my love…  
+I’ll hold your hand gently,  
+look into your eyes softly,  
+and whisper,  
+<b>“It’s always you.”</b> 💕
+</p>
+<h2>Come here… I’ve got you 😘</h2>
+</div>
+
+</div>
+
+<script>
+function openLetter(){
+    document.getElementById("envelope").style.display="none";
+    document.getElementById("l1").classList.remove("hidden");
+    document.getElementById("music").play();
+    startHearts();
+}
+
+function nextLetter(n){
+    document.getElementById("l"+n).classList.add("hidden");
+    document.getElementById("l"+(n+1)).classList.remove("hidden");
+}
+
+function showMain(){
+    document.getElementById("l3").classList.add("hidden");
+    document.getElementById("main").classList.remove("hidden");
+}
+
+function finalStep(){
+    document.getElementById("proposal").classList.remove("hidden");
+}
+
+function yes(){
+    document.getElementById("final").classList.remove("hidden");
+}
+
+function shy(){
+    document.getElementById("shyReply").classList.remove("hidden");
+}
+
+function startHearts(){
+    setInterval(()=>{
+        const h=document.createElement("div");
+        h.className="float-heart";
+        h.innerHTML="❤️";
+        h.style.left=Math.random()*100+"vw";
+        h.style.fontSize=Math.random()*20+15+"px";
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),6000);
+    },400);
+}
+</script>
+
+</body>
+</html>
