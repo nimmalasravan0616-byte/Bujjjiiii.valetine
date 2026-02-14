@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bujjjiiii ❤️ Bunny</title>
+
+<style>
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    background:linear-gradient(135deg,#ff4d6d,#ff85a2);
+    color:white;
+    text-align:center;
+    overflow:hidden;
+}
+
+h1,h2,p{
+    animation:fade 2s;
+}
+
+.envelope{
+    width:260px;
+    height:180px;
+    background:#fff;
+    margin:120px auto;
+    border-radius:10px;
+    position:relative;
+    cursor:pointer;
+    box-shadow:0 20px 40px rgba(0,0,0,0.3);
+}
+
+.envelope:before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:0;
+    height:0;
+    border-left:130px solid transparent;
+    border-right:130px solid transparent;
+    border-top:90px solid #ff4d6d;
+}
+
+.envelope span{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    color:#ff4d6d;
+    font-weight:bold;
+}
+
+.hidden{display:none;}
+
+.letter{
+    background:white;
+    color:#ff4d6d;
+    padding:30px;
+    margin:40px auto;
+    max-width:700px;
+    border-radius:20px;
+    box-shadow:0 20px 40px rgba(0,0,0,0.4);
+}
+
+button{
+    padding:15px 35px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    font-size:1.1em;
+    cursor:pointer;
+    margin-top:20px;
+}
+
+.heart{
+    position:absolute;
+    color:white;
+    font-size:20px;
+    animation:float 6s linear infinite;
+}
+
+@keyframes float{
+    from{transform:translateY(100vh);opacity:1;}
+    to{transform:translateY(-10vh);opacity:0;}
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(20px);}
+    to{opacity:1;transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- 🎶 SOFT & PLEASANT ROMANTIC MUSIC -->
+<audio id="music" loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_8d1e7f0d9b.mp3" type="audio/mpeg">
+</audio>
+
+<div id="envelope" class="envelope" onclick="openLetter()">
+    <span>Tap to Open 💌</span>
+</div>
+
+<div id="letter1" class="hidden letter">
+<h1>My Dearest Bujjjiiii 💖</h1>
+<p>
+This is not just a letter…  
+This is my heart speaking to you.
+</p>
+<button onclick="next(1)">Continue 💕</button>
+</div>
+
+<div id="letter2" class="hidden letter">
+<p>
+From the day you came into my life,  
+everything felt warmer and safer.  
+You became my comfort,  
+my smile,  
+my peace.
+</p>
+<button onclick="next(2)">Open More 💝</button>
+</div>
+
+<div id="letter3" class="hidden letter">
+<p>
+When I’m tired, you are my rest.  
+When I’m lost, you are my direction.  
+When I doubt myself,  
+your love reminds me who I am.
+</p>
+<button onclick="next(3)">One Last Page ❤️</button>
+</div>
+
+<div id="letter4" class="hidden letter">
+<h2>Will You Be My Valentine Forever? 💍</h2>
+<p>
+No matter where life takes us,  
+my heart will always choose you.
+</p>
+<button onclick="yes()">YES FOREVER ❤️</button>
+</div>
+
+<div id="final" class="hidden letter">
+<h1>I Love You Bujjjiiii 💞</h1>
+<p>
+Forever yours,  
+<br><b>Bunny 🫶</b>
+</p>
+</div>
+
+<script>
+function openLetter(){
+    document.getElementById("envelope").style.display="none";
+    document.getElementById("letter1").classList.remove("hidden");
+    document.getElementById("music").play();
+    hearts();
+}
+
+function next(n){
+    document.getElementById("letter"+n).classList.add("hidden");
+    document.getElementById("letter"+(n+1)).classList.remove("hidden");
+}
+
+function yes(){
+    document.getElementById("letter4").classList.add("hidden");
+    document.getElementById("final").classList.remove("hidden");
+}
+
+function hearts(){
+    setInterval(()=>{
+        let h=document.createElement("div");
+        h.className="heart";
+        h.innerHTML="❤️";
+        h.style.left=Math.random()*100+"vw";
+        h.style.fontSize=Math.random()*20+15+"px";
+        document.body.appendChild(h);
+        setTimeout(()=>h.remove(),6000);
+    },300);
+}
+</script>
+
+</body>
+</html>
