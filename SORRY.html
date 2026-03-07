@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>A Message From Bunny ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+color:white;
+text-align:center;
+background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+overflow:hidden;
+}
+
+/* stars */
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:0.2}
+50%{opacity:1}
+100%{opacity:0.2}
+}
+
+/* glass card */
+
+.letter{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:45px;
+margin:80px auto;
+max-width:800px;
+border-radius:25px;
+box-shadow:0 0 40px rgba(255,105,180,0.4);
+display:none;
+}
+
+/* buttons */
+
+button{
+padding:15px 35px;
+font-size:1.1em;
+border:none;
+border-radius:40px;
+cursor:pointer;
+margin:15px;
+background:#ff4d6d;
+color:white;
+box-shadow:0 0 15px #ff4d6d;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* floating hearts */
+
+.heart{
+position:fixed;
+bottom:-20px;
+animation:float 6s linear forwards;
+}
+
+@keyframes float{
+from{transform:translateY(0);opacity:1}
+to{transform:translateY(-110vh);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="start" style="margin-top:200px">
+<h1>A Message For My Bujjjiiii ❤️</h1>
+<button onclick="openLetter()">Tap To Open 💌</button>
+</div>
+
+<div class="letter" id="letter">
+
+<h2>My Dearest Bujjjiiii ❤️</h2>
+
+<p id="text"></p>
+
+<div id="question" style="display:none">
+
+<h2>Will You Forgive Me? 🥺</h2>
+
+<button onclick="yes()">Yes I Forgive You ❤️</button>
+<button onclick="cute()">Only If You Hug Me Forever 🤗</button>
+
+</div>
+
+<div id="ans1" style="display:none">
+
+<h2>You Just Made My Heart Smile 💖</h2>
+
+<p>
+Thank you for forgiving me.  
+I promise I will be more careful with your heart.
+</p>
+
+<p>
+Your happiness means everything to me.
+Your smile is my favorite thing in the world.
+</p>
+
+<p>
+From today I just want to make you laugh,
+protect your feelings,
+and make you feel loved every day.
+</p>
+
+</div>
+
+<div id="ans2" style="display:none">
+
+<h2>Deal Accepted 😄</h2>
+
+<p>
+Unlimited hugs 🤗  
+Unlimited chocolates 🍫  
+Unlimited love ❤️  
+Just for you.
+</p>
+
+<p>
+Because you deserve all the happiness in the world.
+</p>
+
+</div>
+
+<p style="margin-top:40px"><b>Forever Yours,<br>Bunny ❤️</b></p>
+
+</div>
+
+<script>
+
+/* create stars */
+
+for(let i=0;i<120;i++){
+let star=document.createElement("div")
+star.className="star"
+star.style.top=Math.random()*100+"%"
+star.style.left=Math.random()*100+"%"
+document.body.appendChild(star)
+}
+
+/* emotional message */
+
+let msg=`I know we had a big fight...
+
+Maybe my words hurt you deeply.
+Maybe they gave you stress,
+maybe they even made you feel scared.
+
+For that... I am truly sorry.
+
+The truth is,
+seeing you sad because of me
+is the worst feeling in my heart.
+
+You are not just someone in my life.
+
+You are my happiness.
+You are the peace in my chaos.
+You are the person who makes my world feel complete.
+
+When we stop talking after a fight,
+everything feels empty.
+
+I miss your smile.
+I miss your cute anger.
+I miss the way you talk to me.
+
+And most of all...
+I miss us.
+
+If I could go back to that moment,
+I would hug you instead of arguing.
+
+Because you are far more important
+than any ego,
+any misunderstanding,
+or any fight.
+
+From the deepest part of my heart...
+
+I am really sorry.`
+
+let i=0
+
+function openLetter(){
+
+start.style.display="none"
+letter.style.display="block"
+
+let typing=setInterval(()=>{
+
+text.innerHTML+=msg.charAt(i)
+i++
+
+if(i>=msg.length){
+clearInterval(typing)
+question.style.display="block"
+}
+
+},40)
+
+}
+
+/* option 1 */
+
+function yes(){
+
+ans1.style.display="block"
+ans2.style.display="none"
+hearts()
+
+}
+
+/* option 2 */
+
+function cute(){
+
+ans2.style.display="block"
+ans1.style.display="none"
+hearts()
+
+}
+
+/* floating hearts */
+
+function hearts(){
+
+setInterval(()=>{
+
+let h=document.createElement("div")
+h.className="heart"
+h.innerHTML="❤️"
+h.style.left=Math.random()*100+"vw"
+h.style.fontSize=Math.random()*20+20+"px"
+
+document.body.appendChild(h)
+
+setTimeout(()=>h.remove(),6000)
+
+},300)
+
+}
+
+</script>
+
+</body>
+</html>
