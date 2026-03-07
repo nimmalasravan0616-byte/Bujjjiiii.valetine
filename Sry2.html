@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Bujjjiiii ❤️ Bunny</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+color:white;
+text-align:center;
+background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+overflow:hidden;
+}
+
+/* stars */
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:0.2}
+50%{opacity:1}
+100%{opacity:0.2}
+}
+
+/* envelope */
+
+.envelope{
+width:260px;
+height:180px;
+background:white;
+margin:120px auto;
+border-radius:10px;
+position:relative;
+cursor:pointer;
+}
+
+.envelope:before{
+content:"";
+position:absolute;
+border-left:130px solid transparent;
+border-right:130px solid transparent;
+border-top:90px solid #ff4d6d;
+top:0;
+left:0;
+}
+
+.envelope span{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+color:#ff4d6d;
+font-weight:bold;
+}
+
+/* glass letter */
+
+.letter{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:40px;
+margin:60px auto;
+max-width:800px;
+border-radius:25px;
+box-shadow:0 0 40px rgba(255,105,180,0.4);
+}
+
+.hidden{display:none}
+
+/* buttons */
+
+button{
+padding:15px 35px;
+font-size:1.1em;
+border:none;
+border-radius:40px;
+cursor:pointer;
+margin:12px;
+background:#ff4d6d;
+color:white;
+box-shadow:0 0 15px #ff4d6d;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+/* floating hearts */
+
+.heart{
+position:fixed;
+bottom:-20px;
+animation:float 6s linear forwards;
+}
+
+@keyframes float{
+from{transform:translateY(0);opacity:1}
+to{transform:translateY(-110vh);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- stars background -->
+
+<script>
+for(let i=0;i<120;i++){
+let s=document.createElement("div")
+s.className="star"
+s.style.top=Math.random()*100+"%"
+s.style.left=Math.random()*100+"%"
+document.body.appendChild(s)
+}
+</script>
+
+<!-- envelope -->
+
+<div id="envelope" class="envelope" onclick="openLetter()">
+<span>Tap To Open 💌</span>
+</div>
+
+<!-- letter parts -->
+
+<div id="l1" class="hidden letter">
+
+<h2>My Dearest Bujjjiiii ❤️</h2>
+
+<p>
+Before anything else, I want you to know one thing clearly…
+You are very important to me.
+</p>
+
+<p>
+I know we had a big fight,
+and I know my words hurt you deeply.
+</p>
+
+<button onclick="next(1)">Continue 💕</button>
+
+</div>
+
+<div id="l2" class="hidden letter">
+
+<p>
+Maybe that fight gave you stress.
+Maybe it even made you feel scared or upset.
+And for that… I am truly sorry.
+</p>
+
+<p>
+Seeing you sad because of me
+is the worst feeling in my heart.
+</p>
+
+<button onclick="next(2)">Read More 💝</button>
+
+</div>
+
+<div id="l3" class="hidden letter">
+
+<p>
+You are not just someone in my life.
+</p>
+
+<p>
+You are the smile that makes my day better,
+the calm when my mind feels heavy,
+and the person who makes my world feel complete.
+</p>
+
+<p>
+When we stop talking after a fight,
+everything suddenly feels empty.
+</p>
+
+<button onclick="showMain()">Open My Heart ❤️</button>
+
+</div>
+
+<div id="main" class="hidden letter">
+
+<h2>Something From My Heart 💌</h2>
+
+<p>
+I miss your smile.
+I miss your cute anger.
+I miss the way you talk to me.
+</p>
+
+<p>
+And most of all…
+I miss *us*.
+</p>
+
+<p>
+If I could go back to that moment,
+I would hug you instead of arguing.
+</p>
+
+<p>
+Because you are far more important than any ego,
+any misunderstanding,
+or any silly fight.
+</p>
+
+<p>
+From the bottom of my heart…
+I am truly sorry for hurting you.
+</p>
+
+<h2>Will You Forgive Me? 🥺❤️</h2>
+
+<button onclick="yes()">Yes I Forgive You ❤️</button>
+<button onclick="cute()">Only If You Hug Me Forever 🤗</button>
+
+<div id="yesAns" class="hidden">
+
+<h2>You Just Made My Heart Happy 💖</h2>
+
+<p>
+Thank you for forgiving me.
+I promise I will protect your smile
+and make you feel loved every day.
+</p>
+
+</div>
+
+<div id="cuteAns" class="hidden">
+
+<h2>Deal Accepted 😄</h2>
+
+<p>
+Unlimited hugs 🤗  
+Unlimited chocolates 🍫  
+Unlimited love ❤️
+</p>
+
+</div>
+
+<p style="margin-top:40px"><b>Forever Yours,<br>Bunny ❤️</b></p>
+
+</div>
+
+<script>
+
+function openLetter(){
+envelope.style.display="none"
+l1.classList.remove("hidden")
+}
+
+function next(n){
+document.getElementById("l"+n).classList.add("hidden")
+document.getElementById("l"+(n+1)).classList.remove("hidden")
+}
+
+function showMain(){
+l3.classList.add("hidden")
+main.classList.remove("hidden")
+}
+
+function yes(){
+cuteAns.classList.add("hidden")
+yesAns.classList.remove("hidden")
+hearts()
+}
+
+function cute(){
+yesAns.classList.add("hidden")
+cuteAns.classList.remove("hidden")
+hearts()
+}
+
+function hearts(){
+setInterval(()=>{
+let h=document.createElement("div")
+h.className="heart"
+h.innerHTML="❤️"
+h.style.left=Math.random()*100+"vw"
+h.style.fontSize=Math.random()*20+20+"px"
+document.body.appendChild(h)
+setTimeout(()=>h.remove(),6000)
+},300)
+}
+
+</script>
+
+</body>
+</html>
