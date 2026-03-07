@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I'm Sorry ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+color:white;
+text-align:center;
+background:linear-gradient(120deg,#0f2027,#203a43,#2c5364);
+overflow:hidden;
+}
+
+/* stars background */
+
+.stars{
+position:fixed;
+width:100%;
+height:100%;
+background:transparent;
+}
+
+.star{
+position:absolute;
+width:2px;
+height:2px;
+background:white;
+animation:twinkle 3s infinite;
+}
+
+@keyframes twinkle{
+0%{opacity:0.2}
+50%{opacity:1}
+100%{opacity:0.2}
+}
+
+/* glowing card */
+
+.letter{
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(10px);
+padding:40px;
+margin:80px auto;
+max-width:750px;
+border-radius:25px;
+box-shadow:0 0 40px rgba(255,105,180,0.4);
+display:none;
+}
+
+/* glowing buttons */
+
+button{
+padding:15px 35px;
+font-size:1.1em;
+border:none;
+border-radius:40px;
+cursor:pointer;
+margin:15px;
+background:#ff4d6d;
+color:white;
+box-shadow:0 0 15px #ff4d6d;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+box-shadow:0 0 25px #ff4d6d;
+}
+
+/* floating hearts */
+
+.heart{
+position:fixed;
+bottom:-20px;
+animation:float 6s linear forwards;
+}
+
+@keyframes float{
+from{transform:translateY(0);opacity:1}
+to{transform:translateY(-110vh);opacity:0}
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div id="start" style="margin-top:200px">
+<h1>A Message For Someone Special ❤️</h1>
+<button onclick="openLetter()">Tap To Read 💌</button>
+</div>
+
+<div class="letter" id="letter">
+
+<h2>My Love ❤️</h2>
+
+<p id="text"></p>
+
+<div id="question" style="display:none">
+
+<h2>Will You Forgive Me? 🥺</h2>
+
+<button onclick="forgive()">Yes… I Forgive You ❤️</button>
+<button onclick="cute()">Only If You Hug Me Forever 🤗</button>
+
+</div>
+
+<div id="answer1" style="display:none">
+
+<h2>Thank You My Love 💖</h2>
+<p>
+You just made my heart peaceful again.
+I promise I will protect your smile
+and never hurt you like that again.
+</p>
+
+</div>
+
+<div id="answer2" style="display:none">
+
+<h2>Deal Accepted 😄</h2>
+<p>
+Unlimited hugs 🤗  
+Unlimited chocolates 🍫  
+Unlimited love ❤️  
+Just for you.
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+/* star background */
+
+for(let i=0;i<120;i++){
+let star=document.createElement("div")
+star.className="star"
+star.style.top=Math.random()*100+"%"
+star.style.left=Math.random()*100+"%"
+star.style.animationDelay=Math.random()*3+"s"
+stars.appendChild(star)
+}
+
+/* message typing effect */
+
+let message=`I know we had a big fight.
+
+Maybe my words hurt you deeply.
+Maybe they gave you stress and fear.
+
+But the truth is...
+
+Seeing you sad because of me
+breaks my heart more than anything.
+
+You are not just someone in my life.
+
+You are my happiness.
+My calm in chaos.
+The reason my world feels beautiful.
+
+I miss your smile.
+I miss your cute anger.
+And most of all...
+I miss us.
+
+If I could go back to that moment
+I would hug you instead of arguing.
+
+Because you are more important
+than any fight or ego.
+
+From the deepest part of my heart...
+
+I am truly sorry.`
+
+let i=0
+
+function openLetter(){
+
+start.style.display="none"
+letter.style.display="block"
+
+let speed=setInterval(()=>{
+
+text.innerHTML+=message.charAt(i)
+i++
+
+if(i>=message.length){
+clearInterval(speed)
+question.style.display="block"
+}
+
+},40)
+
+}
+
+/* forgive option */
+
+function forgive(){
+
+question.style.display="none"
+answer1.style.display="block"
+hearts()
+
+}
+
+/* cute option */
+
+function cute(){
+
+question.style.display="none"
+answer2.style.display="block"
+hearts()
+
+}
+
+/* floating hearts */
+
+function hearts(){
+
+setInterval(()=>{
+
+let h=document.createElement("div")
+h.className="heart"
+h.innerHTML="❤️"
+h.style.left=Math.random()*100+"vw"
+h.style.fontSize=Math.random()*20+20+"px"
+
+document.body.appendChild(h)
+
+setTimeout(()=>h.remove(),6000)
+
+},300)
+
+}
+
+</script>
+
+</body>
+</html>
