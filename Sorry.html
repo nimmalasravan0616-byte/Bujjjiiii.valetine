@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>I'm Sorry ❤️</title>
+
+<style>
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ff4d6d,#ff85a2);
+color:white;
+text-align:center;
+overflow:hidden;
+}
+
+.hidden{display:none;}
+
+button{
+padding:15px 35px;
+font-size:1.1em;
+border:none;
+border-radius:40px;
+cursor:pointer;
+margin:12px;
+transition:0.3s;
+}
+
+button:hover{transform:scale(1.05);}
+
+.envelope{
+width:260px;height:180px;
+background:white;
+margin:120px auto;
+border-radius:10px;
+position:relative;
+cursor:pointer;
+}
+
+.envelope:before{
+content:"";
+position:absolute;
+border-left:130px solid transparent;
+border-right:130px solid transparent;
+border-top:90px solid #ff4d6d;
+top:0;left:0;
+}
+
+.envelope span{
+position:absolute;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+color:#ff4d6d;
+font-weight:bold;
+}
+
+.letter{
+background:white;
+color:#ff4d6d;
+padding:35px;
+margin:40px auto;
+max-width:800px;
+border-radius:20px;
+}
+
+.float-heart{
+position:fixed;
+bottom:-30px;
+animation:floatUp 6s linear forwards;
+pointer-events:none;
+}
+
+@keyframes floatUp{
+from{transform:translateY(0);opacity:1;}
+to{transform:translateY(-110vh);opacity:0;}
+}
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+<source src="https://cdn.pixabay.com/audio/2022/10/25/audio_9b8f4e1cbb.mp3" type="audio/mpeg">
+</audio>
+
+<div id="envelope" class="envelope" onclick="openLetter()">
+<span>Tap to Open 💌</span>
+</div>
+
+<div id="l1" class="hidden letter">
+<h2>My Love ❤️</h2>
+<p>
+I know we had a big fight… and I know I hurt you.
+That was never my intention.
+Seeing you sad because of me is the worst feeling in my heart.
+</p>
+<button onclick="next(1)">Continue 💕</button>
+</div>
+
+<div id="l2" class="hidden letter">
+<p>
+Sometimes my anger speaks before my heart does.
+Sometimes my words come out wrong.
+But the truth is… my heart has always belonged to you.
+</p>
+
+<p>
+You are not just someone in my life.
+You are my happiness, my peace,
+and the reason my world feels beautiful.
+</p>
+
+<button onclick="next(2)">One More 💝</button>
+</div>
+
+<div id="l3" class="hidden letter">
+<p>
+I never wanted to give you stress or fear.
+You deserve love, comfort, and smiles.
+Not pain because of me.
+</p>
+
+<p>
+I miss your smile.
+I miss your cute anger.
+And most of all… I miss *us*.
+</p>
+
+<button onclick="showMain()">Open My Heart ❤️</button>
+</div>
+
+<div id="main" class="hidden">
+
+<h1>From My Heart 💌</h1>
+
+<p>
+If I could go back to that moment,
+I would hug you instead of arguing.
+Because you are more important than any fight.
+</p>
+
+<p>
+You are the most special person in my life,
+and losing you is something I never want.
+</p>
+
+<p>
+So from the bottom of my heart…
+I am truly sorry for hurting you.
+</p>
+
+<h2>Will You Forgive Me? 🥺❤️</h2>
+
+<div id="options">
+<button onclick="yesForgive()">Yes I Forgive You ❤️</button>
+<button onclick="cuteForgive()">Only If You Hug Me Forever 🤗</button>
+</div>
+
+<div id="yesAns" class="hidden">
+<h2>Thank You My Love 💞</h2>
+<p>
+You just made my heart feel peaceful again.
+I promise I will protect your smile
+and never hurt you like that again.
+</p>
+</div>
+
+<div id="cuteAns" class="hidden">
+<h2>Deal Accepted 😄</h2>
+<p>
+Unlimited hugs 🤗
+Unlimited chocolates 🍫
+Unlimited love ❤️
+Just for you.
+</p>
+</div>
+
+<p><b>Forever Yours,<br>Bunny ❤️</b></p>
+
+</div>
+
+<script>
+
+function openLetter(){
+envelope.style.display="none";
+l1.classList.remove("hidden");
+music.play();
+hearts();
+}
+
+function next(n){
+document.getElementById("l"+n).classList.add("hidden");
+document.getElementById("l"+(n+1)).classList.remove("hidden");
+}
+
+function showMain(){
+l3.classList.add("hidden");
+main.classList.remove("hidden");
+}
+
+function yesForgive(){
+cuteAns.classList.add("hidden");
+yesAns.classList.remove("hidden");
+}
+
+function cuteForgive(){
+yesAns.classList.add("hidden");
+cuteAns.classList.remove("hidden");
+}
+
+function hearts(){
+setInterval(()=>{
+let h=document.createElement("div");
+h.className="float-heart";
+h.innerHTML="❤️";
+h.style.left=Math.random()*100+"vw";
+h.style.fontSize=Math.random()*20+15+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),6000);
+},400);
+}
+
+</script>
+
+</body>
+</html>
