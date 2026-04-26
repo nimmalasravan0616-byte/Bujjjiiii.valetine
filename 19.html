@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Someone Special ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  text-align: center;
+  background: linear-gradient(to right, #ff4e50, #fc913a);
+  color: white;
+}
+
+.lock-screen, .main, .gallery {
+  padding-top: 100px;
+}
+
+.hidden {
+  display: none;
+}
+
+input {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: white;
+  color: red;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.photo {
+  width: 200px;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 150px;
+  margin: 10px;
+  border-radius: 15px;
+}
+</style>
+
+</head>
+<body>
+
+<div class="lock-screen" id="lockScreen">
+  <h2>Enter Passcode 💌</h2>
+  <input type="password" id="password" placeholder="****">
+  <br>
+  <button onclick="unlock()">Unlock</button>
+</div>
+
+<div class="main hidden" id="mainContent">
+  <h1>Hey ❤️</h1>
+  <img src="your-photo.jpg" class="photo">
+  <p>Who is this beautiful person? 😍</p>
+  <button onclick="nextPage()">Next ➡️</button>
+</div>
+
+<div class="gallery hidden" id="gallery">
+  <h1>Memories 💖</h1>
+  <img src="photo1.jpg">
+  <img src="photo2.jpg">
+  <img src="photo3.jpg">
+</div>
+
+<script>
+function unlock() {
+  let pass = document.getElementById("password").value;
+
+  if (pass === "1234") {
+    document.getElementById("lockScreen").classList.add("hidden");
+    document.getElementById("mainContent").classList.remove("hidden");
+  } else {
+    alert("Wrong Password 😢");
+  }
+}
+
+function nextPage() {
+  document.getElementById("mainContent").classList.add("hidden");
+  document.getElementById("gallery").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
