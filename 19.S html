@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Someone Special ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  text-align: center;
+  background: linear-gradient(to right, #ff4e50, #fc913a);
+  color: white;
+  overflow: hidden;
+}
+
+.screen {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: 1s;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+input {
+  padding: 10px;
+  font-size: 18px;
+  border-radius: 10px;
+  border: none;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  background: white;
+  color: red;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+img {
+  border-radius: 20px;
+  margin-top: 20px;
+  width: 200px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- LOCK SCREEN -->
+<div class="screen" id="lock">
+  <h2>Enter Passcode 💌</h2>
+  <input type="password" id="pass">
+  <button onclick="unlock()">Unlock</button>
+</div>
+
+<!-- MAIN -->
+<div class="screen hidden" id="main">
+  <h1>Hey ❤️</h1>
+  <img src="your-photo.jpg">
+  <p>Who is this beautiful person? 😍</p>
+</div>
+
+<!-- MEMORY / SLIDESHOW -->
+<div class="screen hidden" id="memory">
+  <h1>Memories 💖</h1>
+  <img id="slide" src="photo1.jpg">
+</div>
+
+<script>
+let photos = ["photo1.jpg","photo2.jpg","photo3.jpg"];
+let index = 0;
+
+function unlock() {
+  let p = document.getElementById("pass").value;
+  if (p === "1234") {
+    show("main");
+
+    // auto move to next screen (like reel)
+    setTimeout(() => {
+      show("memory");
+      startSlideshow();
+    }, 2500);
+  } else {
+    alert("Wrong Password 😢");
+  }
+}
+
+function show(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.add("hidden"));
+  document.getElementById(id).classList.remove("hidden");
+}
+
+function startSlideshow() {
+  setInterval(() => {
+    index = (index + 1) % photos.length;
+    document.getElementById("slide").src = photos[index];
+  }, 2000); // change speed if needed
+}
+</script>
+
+</body>
+</html>
