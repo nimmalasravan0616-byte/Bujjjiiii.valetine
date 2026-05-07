@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Special Birthday Surprise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: 1s ease;
+  color: white;
+}
+
+.theme1 {
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+}
+
+.theme2 {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+}
+
+.theme3 {
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+}
+
+.theme4 {
+  background: linear-gradient(135deg, #141e30, #243b55);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.main-card {
+  width: 90%;
+  max-width: 850px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  padding: 40px 30px;
+  box-shadow: 0 0 35px rgba(255,255,255,0.25);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+h1 {
+  font-size: 4rem;
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 15px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px white;
+  }
+  to {
+    text-shadow: 0 0 25px #fff, 0 0 40px pink;
+  }
+}
+
+.message {
+  font-size: 1.2rem;
+  line-height: 2;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+button {
+  border: none;
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+  background: white;
+  color: black;
+  box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+.symbol {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall linear infinite;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.surprise-box {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  animation: pop 1s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
+  width: 0;
+  animation: typing 5s steps(80, end) forwards;
+  margin: auto;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.photo-frame {
+  margin-top: 25px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 6px solid white;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-text {
+  margin-top: 35px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+@media(max-width: 768px) {
+  h1 {
+    font-size: 2.7rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  .typing {
+    white-space: normal;
+    border-right: none;
+    width: 100%;
+    animation: none;
+  }
+}
+
+  </style>
+</head>
+<body class="theme1">  <div id="symbols"></div>  <div class="container">
+    <div class="main-card"><h1>Happy Birthday 💙</h1>
+
+  <p class="message">
+    To the most beautiful girl in my life ✨<br><br>
+    Today is not just your birthday...<br>
+    It is the day my happiness was born 💖<br><br>
+    Your smile heals me, your voice calms me,
+    and your love makes my world complete 🌍
+  </p>
+
+  <div class="typing">
+    “No matter how many birthdays come... I will always choose you, love you, and care for you forever 💫”
+  </div>
+
+  <div class="photo-frame">
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" alt="photo">
+  </div>
+
+  <div class="buttons">
+    <button onclick="changeTheme(1)">Pink Theme 🌸</button>
+    <button onclick="changeTheme(2)">Love Theme ❤️</button>
+    <button onclick="changeTheme(3)">Cute Theme 🌈</button>
+    <button onclick="changeTheme(4)">Night Theme 🌙</button>
+    <button onclick="showSurprise()">Special Surprise 🎁</button>
+  </div>
+
+  <div id="surprise" class="hidden surprise-box">
+    <h2 style="margin-bottom:15px;">For My Forever Person 💙</h2>
+    <p style="line-height:1.9; font-size:1.1rem;">
+      You are my peace, my happiness, my comfort, and my biggest blessing 🥺💙<br><br>
+      Every second with you becomes a beautiful memory.<br>
+      Every smile of yours becomes my reason to stay happy ✨<br><br>
+      I promise to stand beside you in every situation,
+      make you laugh when you're sad,
+      hold your hand when you feel low,
+      and love you more with every passing day 💫<br><br>
+      Happy Birthday Bujjiiii 💙<br>
+      You deserve endless happiness, success, love, and all the beautiful things in this world 🌍✨
+    </p>
+  </div>
+
+  <div class="footer-text">
+    Made with endless love 💙
+  </div>
+
+</div>
+
+  </div>  <script>
+    const symbols = ['💖','✨','💙','🌸','🎂','🎁','🌈','⭐','🦋','❤️'];
+
+    function createSymbols() {
+      for(let i = 0; i < 40; i++) {
+        let symbol = document.createElement('div');
+        symbol.classList.add('symbol');
+        symbol.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+
+        symbol.style.left = Math.random() * 100 + 'vw';
+        symbol.style.animationDuration = (Math.random() * 5 + 5) + 's';
+        symbol.style.fontSize = (Math.random() * 20 + 20) + 'px';
+
+        document.body.appendChild(symbol);
+      }
+    }
+
+    createSymbols();
+
+    function changeTheme(theme) {
+      document.body.className = 'theme' + theme;
+    }
+
+    function showSurprise() {
+      document.getElementById('surprise').classList.remove('hidden');
+    }
+  </script></body>
+</html>
