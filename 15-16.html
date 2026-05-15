@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Special Birthday Surprise</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }body {
+  overflow-x: hidden;
+  min-height: 100vh;
+  transition: 1s ease;
+  color: white;
+}
+
+.theme1 {
+  background: linear-gradient(135deg, #ff6ec4, #7873f5);
+}
+
+.theme2 {
+  background: linear-gradient(135deg, #ff9966, #ff5e62);
+}
+
+.theme3 {
+  background: linear-gradient(135deg, #00c9ff, #92fe9d);
+}
+
+.theme4 {
+  background: linear-gradient(135deg, #141e30, #243b55);
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.main-card {
+  width: 90%;
+  max-width: 850px;
+  background: rgba(255,255,255,0.12);
+  backdrop-filter: blur(15px);
+  border-radius: 30px;
+  padding: 40px 30px;
+  box-shadow: 0 0 35px rgba(255,255,255,0.25);
+  animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+h1 {
+  font-size: 4rem;
+  font-family: 'Dancing Script', cursive;
+  margin-bottom: 15px;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px white;
+  }
+  to {
+    text-shadow: 0 0 25px #fff, 0 0 40px pink;
+  }
+}
+
+.message {
+  font-size: 1.2rem;
+  line-height: 2;
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+button {
+  border: none;
+  padding: 14px 22px;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s;
+  background: white;
+  color: black;
+  box-shadow: 0 0 15px rgba(255,255,255,0.5);
+}
+
+button:hover {
+  transform: scale(1.08);
+}
+
+.symbol {
+  position: absolute;
+  font-size: 2rem;
+  animation: fall linear infinite;
+  opacity: 0.8;
+  z-index: 1;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.surprise-box {
+  margin-top: 25px;
+  padding: 20px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.15);
+  animation: pop 1s ease;
+}
+
+@keyframes pop {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.typing {
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 3px solid white;
+  width: 0;
+  animation: typing 5s steps(80, end) forwards;
+  margin: auto;
+  font-size: 1.1rem;
+  margin-top: 20px;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+.photo-frame {
+  margin-top: 25px;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 6px solid white;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 20px rgba(255,255,255,0.6);
+}
+
+.photo-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.footer-text {
+  margin-top: 35px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+@media(max-width: 768px) {
+  h1 {
+    font-size: 2.7rem;
+  }
+
+  .message {
+    font-size: 1rem;
+  }
+
+  .typing {
+    white-space: normal;
+    border-right: none;
+    width: 100%;
+    animation: none;
+  }
+}
+
+  </style>
+</head>
+<body class="theme1">  <div id="symbols"></div>  <div class="container">
+    <div class="main-card"><h1>Happy Birthday 💙</h1>
+
+  <p class="message">
+    To the most beautiful girl in my life ✨<br><br>
+    Today is not just your birthday...<br>
+    It is the day my happiness was born 💖<br><br>
+    Your smile heals me, your voice calms me,
+    and your love makes my world complete 🌍
+  </p>
+
+  <div class="typing">
+    “No matter how many birthdays come... I will always choose you, love you, and care for you forever 💫”
+  </div>
+
+  <div class="photo-frame">
+    <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?q=80&w=800&auto=format&fit=crop" alt="photo">
+  </div>
+
+  <div class="buttons">
+    <button onclick="showSurprise()">Open Your Special Surprise 💙</button>
+    <button onclick="startMemories()">Our Memories ✨</button>
+    <button onclick="finalLove()">Finally 💗</button>
+  </div>
+
+  <div id="surprise" class="hidden surprise-box">
+    <h2 style="margin-bottom:15px;">For My Forever Person 💙</h2>
+    <p style="line-height:2; font-size:1.15rem;">
+      From the moment you entered my life,
+      everything slowly started feeling more beautiful 💙<br><br>
+
+      Your voice became my comfort,
+      your smile became my happiness,
+      and your presence became my peace 🤍<br><br>
+
+      I may not always express perfectly,
+      but trust me...
+      you are one of the most special people I have ever met 💞<br><br>
+
+      You deserve soft happiness,
+      genuine love,
+      peaceful nights,
+      endless success,
+      and someone who reminds you everyday how precious you are 💗<br><br>
+
+      And on your birthday...
+      I just want you to smile genuinely and feel loved deeply because you truly deserve it forever 💙
+    </p>
+  </div>
+
+  <div class="footer-text">
+    Made with endless love 💙
+  </div>
+
+</div>
+
+  </div>  <script>
+    const styleSheet = document.createElement('style');
+    styleSheet.innerHTML = `
+      @keyframes heartRain {
+        0% {
+          transform: translateY(-100px);
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 1;
+        }
+
+        100% {
+          transform: translateY(120vh);
+          opacity: 0.8;
+        }
+      }
+    `;
+    document.head.appendChild(styleSheet);
+    const symbols = ['🤍','💙','💞','💗'];
+
+    function createSymbols() {
+      for(let i = 0; i < 40; i++) {
+        let symbol = document.createElement('div');
+        symbol.classList.add('symbol');
+        symbol.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+
+        symbol.style.left = Math.random() * 100 + 'vw';
+        symbol.style.top = '-10vh';
+        symbol.style.animationDuration = (Math.random() * 4 + 4) + 's';
+        symbol.style.fontSize = (Math.random() * 10 + 12) + 'px';
+
+        document.body.appendChild(symbol);
+      }
+    }
+
+    createSymbols();
+
+    function showSurprise() {
+      document.getElementById('surprise').classList.remove('hidden');
+    }
+
+    function startMemories() {
+      const lovePage = document.createElement('div');
+      lovePage.id = 'lovePage';
+
+      lovePage.style.position = 'fixed';
+      lovePage.style.top = '0';
+      lovePage.style.left = '0';
+      lovePage.style.width = '100%';
+      lovePage.style.height = '100%';
+      lovePage.style.background = 'linear-gradient(180deg, #ff4d6d 0%, #ff758f 40%, #ff8fa3 100%)';
+      lovePage.style.backgroundAttachment = 'fixed';
+      lovePage.style.zIndex = '9999';
+      lovePage.style.overflow = 'hidden';
+      lovePage.style.padding = '40px 20px';
+
+      const rainContainer = document.createElement('div');
+      rainContainer.style.position = 'absolute';
+      rainContainer.style.top = '0';
+      rainContainer.style.left = '0';
+      rainContainer.style.width = '100%';
+      rainContainer.style.height = '100%';
+      rainContainer.style.pointerEvents = 'none';
+      rainContainer.style.overflow = 'hidden';
+      lovePage.appendChild(rainContainer);
+
+      for(let i = 0; i < 45; i++) {
+        let rainHeart = document.createElement('div');
+        rainHeart.innerHTML = Math.random() > 0.5 ? '💗' : '💙';
+        rainHeart.style.position = 'absolute';
+        rainHeart.style.left = Math.random() * 100 + 'vw';
+        rainHeart.style.top = '-20px';
+        rainHeart.style.fontSize = (Math.random() * 6 + 10) + 'px';
+        rainHeart.style.opacity = '0.9';
+        rainHeart.style.animation = `heartRain ${(Math.random() * 3 + 5)}s linear infinite`;
+        rainHeart.style.animationDelay = `${Math.random() * 5}s`;
+
+        rainContainer.appendChild(rainHeart);
+      }
+
+      lovePage.innerHTML = `
+        <div style="max-width:850px;margin:auto;background:rgba(255,255,255,0.1);padding:35px;border-radius:30px;backdrop-filter:blur(15px);box-shadow:0 0 30px rgba(255,255,255,0.2);text-align:center;color:white;">
+
+          <h1 style="font-family:Dancing Script,cursive;font-size:4rem;margin-bottom:25px;">
+            Our Beautiful Memories 💙
+          </h1>
+
+          <div id="memoryText" style="font-size:0.95rem;line-height:2;margin-top:20px;"></div>
+
+          <div style="margin-top:35px;display:flex;justify-content:center;gap:15px;flex-wrap:wrap;">
+
+            <button onclick="openFinalInside()" style="border:none;padding:14px 24px;border-radius:30px;font-weight:bold;font-size:1rem;cursor:pointer;">
+              Finally 💗
+            </button>
+
+            <button onclick="closeLovePage()" style="border:none;padding:14px 24px;border-radius:30px;font-weight:bold;font-size:1rem;cursor:pointer;">
+              Close ✨
+            </button>
+          </div>
+
+          <div id="finalInsideBox" style="display:none;margin-top:35px;padding:25px;border-radius:25px;background:rgba(255,255,255,0.12);">
+
+            <h2 style="font-size:2.2rem;margin-bottom:25px;">
+              Forever & Always 💙
+            </h2>
+
+            <p style="font-size:1.5rem;font-weight:700;line-height:2;">
+              I LOVE YOU MORE THAN ANYTHING IN THIS WORLD 💙🌍💗
+            </p>
+
+            <p style="margin-top:25px;font-size:1.15rem;line-height:2.1;">
+              You are the best thing that ever happened to me 💞<br><br>
+
+              Happy Birthday to my favourite person forever 💙✨<br><br>
+
+              May your smile always stay bright,
+              your dreams come true,
+              and your life stay filled with happiness, love, peace and endless beautiful moments 🤍💗
+            </p>
+          </div>
+        </div>
+      `;
+
+      document.body.appendChild(lovePage);
+
+      const memoryTexts = [
+        '💙 The day I met you became my favourite chapter...',
+        '🤍 Your smile is my safest place forever...',
+        '💞 Every notification from you makes my heart happier...',
+        '💗 Even in my hardest days, you are my peace...',
+        '💙 I never knew someone could become this important to me...',
+        '🤍 Thank you for existing in my life, bujjammaaaaa...',
+        '💞 Every moment with you feels magical and unforgettable...',
+        '💗 I wish to celebrate every birthday with you forever...'
+      ];
+
+      let index = 0;
+      const memoryText = document.getElementById('memoryText');
+
+      function showNextMemory() {
+        if(index < memoryTexts.length) {
+          const line = document.createElement('div');
+          line.innerHTML = memoryTexts[index];
+          line.style.marginBottom = '20px';
+          line.style.animation = 'none';
+          memoryText.appendChild(line);
+          memoryText.scrollTop = memoryText.scrollHeight;
+
+          index++;
+          setTimeout(showNextMemory, 2200);
+        }
+      }
+
+      showNextMemory();
+    }
+
+    function openFinalInside() {
+      document.getElementById('finalInsideBox').style.display = 'block';
+      document.getElementById('finalInsideBox').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function closeLovePage() {
+      const page = document.getElementById('lovePage');
+      if(page) {
+        page.remove();
+      }
+    }
+  </script></body>
+</html>
